@@ -22,14 +22,13 @@ class LRUCache(BaseCaching):
         """
         put new item in the cache
         """
-        
+
         if key and item:
             if key not in self.__listItems:
                 self.__listItems.append(key)
             else:
                 pop_key = self.__listItems.pop(self.__listItems.index(key))
                 self.__listItems.append(pop_key)
-
 
             self.cache_data[key] = item
             if len(self.__listItems) > BaseCaching.MAX_ITEMS:
